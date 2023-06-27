@@ -8,6 +8,7 @@ import EmployeeExpenseList from '../components/EmployeeExpenseList';
 import HRExpenseList from '../components/HRExpenseList';
 import DirectorExpenseList from '../components/DirectorExpenseList';
 import FinanceDepartmentExpenseList from '../components/FinanceDepartmentExpenseList';
+import { Empty, ConfigProvider } from 'antd';
 
 const HomeScreen = () => {
   const { pageNumber } = useParams();
@@ -18,13 +19,6 @@ const HomeScreen = () => {
 
   return (
     <>
-      {userInfo.userType === 'Employee' && (
-        <Link to={'/addExpense'}>
-          <Button variant="primary" className="my-2">
-            Add Expense
-          </Button>
-        </Link>
-      )}
 
       {isLoading ? (
         <Loader />
@@ -32,11 +26,18 @@ const HomeScreen = () => {
         <Message variant="danger">
           {error?.data?.message || error.error}
         </Message>
-      ) : data.expenses.length === 0 ? (
-        <Message variant="danger">No Expenses Found</Message>
       ) : (
         <>
-          <h1>Expenses List</h1>
+        <div className='add-btn'>
+        <h2>Expenses List</h2>
+        {userInfo.userType === 'Employee' && (
+        <Link to={'/addExpense'}>
+          <Button variant="primary">
+            Add Expense
+          </Button>
+        </Link>
+      )}
+        </div>
           {userInfo.userType === 'Employee' && (
             <EmployeeExpenseList data={data} refetch={refetch} />
           )}

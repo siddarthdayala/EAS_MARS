@@ -1,3 +1,61 @@
 main {
   min-height: 80vh;
 }
+
+.cards-mobile{
+  width: 100%;
+}
+
+.add-btn{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.modal-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.modal-details p {
+  color: #767676;
+}
+
+.modal-details h4 {
+  color: black;
+}
+
+.modal-details-1 h5 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: table;
+  margin: 20px auto;
+  background: #e8eaeb;
+  border-radius: 9999px;
+  padding: 5px;
+}
+
+.modal-details-1 {
+  display: flex;
+}
+
+.modal-proof {
+  margin-left: 100px;
+}
+
+.modal-details-mobile{
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-details-mobile p {
+  color: #767676;
+}
+
+.modal-details-mobile h6 {
+  color: black;
+}

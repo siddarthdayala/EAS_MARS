@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 import dayjs from 'dayjs';
 import { toast } from 'react-toastify';
 import { AiOutlineClose, AiOutlineCheck } from 'react-icons/ai';
-
+import { CloseCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { useUpdateExpenseMutation } from '../slices/expensesApiSlice';
 import Paginate from '../components/Paginate';
 
@@ -41,16 +41,16 @@ const HRExpenseList = (props) => {
   }
 
   return (
-    <Table hover bordered striped responsive>
+    <Table hover bordered responsive>
       <thead>
-        <tr style={{ textAlign: 'center' }}>
+        <tr style={{ textAlign: 'center',}}>
           {/* <th>#</th> */}
           <th>Employee Name</th>
           <th>Employee Id</th>
           <th>Project Name</th>
           <th>Project Id</th>
           <th>Bill Proof</th>
-          <th>Amount</th>
+          <th>Amount (Rs)</th>
           <th>Description</th>
           <th>Date</th>
           <th>Action</th>
@@ -70,20 +70,16 @@ const HRExpenseList = (props) => {
             <td
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
+                justifyContent: 'space-around',
               }}
             >
-              <AiOutlineCheck
-                size={'1.7em'}
-                color="#00FF00"
+              <CheckCircleOutlined
                 onClick={() => handleApprove(expense)}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', fontSize:'1.7rem' }}
               />
-              <AiOutlineClose
-                size={'1.7em'}
-                color="#FF0000"
+              <CloseCircleOutlined
                 onClick={() => handleReject(expense)}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', fontSize: '1.7rem'}}
               />
             </td>
           </tr>
